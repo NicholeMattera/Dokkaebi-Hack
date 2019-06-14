@@ -32,7 +32,7 @@ namespace DokkaebiHack::Views {
         
         SDL_Surface * surface;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             string path = "romfs:/snow_" + to_string(i + 1) + ".png";
             surface = IMG_Load(path.c_str());
             _snow[i] = SDL_CreateTextureFromSurface(Application::renderer, surface);
@@ -45,10 +45,13 @@ namespace DokkaebiHack::Views {
     }
 
     BackgroundView::~BackgroundView() {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             if (_snow[i] != NULL)
                 SDL_DestroyTexture(_snow[i]);
         }
+
+        if (_cover != NULL)
+            SDL_DestroyTexture(_cover);
     }
 
     void BackgroundView::onRender(SDL_Rect rect, double dTime) {

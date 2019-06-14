@@ -66,8 +66,26 @@ namespace DokkaebiHack::Scenes {
     }
 
     HackedScene::~HackedScene() {
+        if (_textView != NULL)
+            delete _textView;
+
+        if (_rightClub != NULL)
+            SDL_DestroyTexture(_rightClub);
+            
+        if (_rightClubView != NULL)
+            delete _rightClubView;
+
+        if (_leftClub != NULL)
+            SDL_DestroyTexture(_leftClub);
+
+        if (_leftClubView != NULL)
+            delete _leftClubView;
+
         if (_dokkaebiView != NULL)
             delete _dokkaebiView;
+
+        if (_backgroundView != NULL)
+            delete _backgroundView;
     }
 
     void HackedScene::buttonsDown(u32 buttons, double dTime) {

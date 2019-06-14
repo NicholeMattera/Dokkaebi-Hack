@@ -33,6 +33,7 @@ namespace DokkaebiHack {
         view->superview = NULL;
         subviews.push_back(view);
     }
+    
     void Scene::removeSubView(View * view) {
         view->superview = NULL;
         subviews.push_back(view);

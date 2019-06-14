@@ -63,6 +63,9 @@ namespace DokkaebiHack {
     }
 
     Application::~Application() {
+        if (_previousScene != NULL)
+            delete _previousScene;
+        
         if (_currentScene != NULL)
             delete _currentScene;
 
